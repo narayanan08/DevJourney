@@ -128,3 +128,32 @@
   height:60px; 
   margin-top:30px;
 }
+
+.projectCards{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projectCard{
+  background-color: rgb(131,208,15);
+  color:white;
+  font-family: 'Times New Roman', Times, serif;
+  margin:20px 20px 20px 20px;
+  border-style: solid;
+  display: flex;
+  justify-content: space-around;
+  width:600px;
+  
+}
+
+.projectStatus{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color:rgba(255, 128, 0, 0.964);
+  /* color:rgb(175, 255, 55) */
+  width:50%;
+  color:rgba(9, 214, 233, 0.911);
+}
+

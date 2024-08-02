@@ -48,15 +48,15 @@ const ProjectBox =(props)=>{
 const Track = ()=>{
     return(
         <div className="track">
-            <ProjectBox projectName="project1"/>
+            <ProjectBox projectName="Currency Convertor"/>
             <img src={RightArrow} alt="right-arrow" className="right-arrow"/>
-            <ProjectBox projectName="project1"/>
+            <ProjectBox projectName="Expense Tracker"/>
             <img src={RightArrow} alt="right-arrow" className="right-arrow"/>
-            <ProjectBox projectName="project1"/>
+            <ProjectBox projectName="Amazon Clone"/>
             <img src={RightArrow} alt="right-arrow" className="right-arrow"/>
-            <ProjectBox projectName="project1"/>
+            <ProjectBox projectName="Blog Management System"/>
             <img src={RightArrow} alt="right-arrow" className="right-arrow"/>
-            <ProjectBox projectName="project1"/>
+            <ProjectBox projectName="Habit Tracker"/>
         </div>
     )
 }
