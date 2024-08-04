@@ -1,0 +1,159 @@
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(131, 208, 15);
+  padding:30px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  font-size: 30px;
+}
+
+.logo{
+  padding-left:20px;
+  margin-top:20px;
+  font-family: 'Times New Roman', Times, monospace;
+  /* font-size: 40px; */
+  color:white;
+  text-decoration: none;
+}
+
+.login-signup{
+  display: flex;
+  font-family: 'Times New Roman', Times, serif;
+  
+  
+}
+
+.login{
+  margin-right:30px;
+  color:white;
+  text-decoration: none;
+  
+}
+
+.signup{
+  margin-right: 20px;
+  color:white;
+  text-decoration: none;
+}
+
+.username{
+  margin-right:30px;
+  color:white;
+  text-decoration: none;
+}
+
+.introduction-main{
+  font-size: 40px;
+  margin:20px 20px 0px 20px;
+  padding:20px 60px 20px 40px;
+  font-family: 'Times New Roman', Times, serif;
+  color:rgb(96, 153, 11);
+  /* box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+  border-radius:40px; */
+}
+
+.introduction-sub{
+  display: flex;
+  margin:20px 20px 0px 20px;
+  padding:20px 60px 0px 60px;
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  color:rgb(96, 153, 11);
+}
+
+.track{
+  margin:20px 20px 0px 20px;
+  padding:20px 60px 0px 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  justify-content: space-around;
+}
+
+.projectBox{
+  padding:30px;
+  font-size: 20px;
+  color:rgb(96, 153, 11);
+  border-style:solid;
+  border-radius: 15px;
+  border-width:5px;
+  border-color:rgb(246, 67, 246);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.greeting-loginForm, .greeting-signUpForm{
+  display: flex;
+  justify-content: center;
+  align-items:center ;
+  flex-direction: column;
+  margin:20px 20px 0px 20px;
+}
+
+.greeting{
+  font-size: 40px;
+  
+  padding:20px 60px 20px 40px;
+  font-family: 'Times New Roman', Times, serif;
+  color:rgb(96, 153, 11);
+}
+
+.form-field{
+  margin-top:5px !important;
+}
+
+.login-form{
+  /* display: flex; */
+  justify-content: center;
+  padding:50px;
+  border-style: solid;
+  border-width: 1px;
+  display: inline-block;
+  border-color: rgb(203, 198, 198);
+  border-radius:10px;
+}
+
+.register-button, .login-button{
+  margin-top:10px;
+  background-color: rgb(96,153,11);
+  color:white;
+  font-family:Arial, Helvetica, sans-serif;
+  padding: 10px;
+  font-size: 15px;
+  border:none;
+  border-radius:10px;
+}
+
+.right-arrow{
+  height:60px; 
+  margin-top:30px;
+}
+
+.projectCards{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projectCard{
+  background-color: rgb(131,208,15);
+  color:white;
+  font-family: 'Times New Roman', Times, serif;
+  margin:20px 20px 20px 20px;
+  border-style: solid;
+  display: flex;
+  justify-content: space-around;
+  width:600px;
+  
+}
+
+.projectStatus{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color:rgba(255, 128, 0, 0.964);
+  /* color:rgb(175, 255, 55) */
+  width:50%;
+  color:rgb(255, 157, 0);
+}
+
