@@ -11,7 +11,7 @@
 .logo{
   padding-left:20px;
   margin-top:20px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, monospace;
   /* font-size: 40px; */
   color:white;
   text-decoration: none;
@@ -154,6 +154,6 @@
   color:rgba(255, 128, 0, 0.964);
   /* color:rgb(175, 255, 55) */
   width:50%;
-  color:rgba(9, 214, 233, 0.911);
+  color:rgb(255, 157, 0);
 }
 
