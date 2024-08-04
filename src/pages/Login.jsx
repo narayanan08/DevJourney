@@ -1,6 +1,16 @@
-import {Link} from "react-router-dom";
-import { useState } from "react";
+import {Link, useNavigate} from "react-router-dom";
+import { useEffect, useState } from "react";
 import { FormControl, InputLabel, Input, TextField } from "@mui/material";
+
+
+const usernames = ["username1","username2"];
+
+const credentials = {
+    "username1":"abcde",
+    "username2":"fghij",
+}
+
+
 
 const Header=()=>{
 
@@ -18,24 +28,42 @@ const Header=()=>{
 }
 
 const LoginForm=()=>{
+
+    const navigate = useNavigate();
+
     const [formData,setFormData] = useState({
         username:"",
         password:"",
     })
     
-    const validateDetails = (detail,field)=>{
-        
+    const validateDetails = (event)=>{
+        const uppercaseRegex = /[A-Z]/g;
+        const lowercaseRegex = /[a-z]/g;
+        const numberRegex = /\d/g;
+        const specialCharRegex = /[^a-zA-Z0-9]/g;
+       if(formData.username.length === 0){
+        alert("Username must not be empty!");
+        event.preventDefault();
+       }else if(formData.password.length === 0){
+        alert("Password must not be empty!");
+        event.preventDefault();
+       }
+    //    navigate(`/userDashBoard/${formData.username}`);
+       if(formData.username in credentials && credentials[formData.username] === formData.password){
+        navigate(`/userDashBoard/${formData.username}`);
+       }
+       else{
+        alert("Either username or password in incorrect");
+        event.preventDefault();
+       }
+       
+
     }
 
-    const saveLoginDetails = (event)=>{
-        event.preventDefault();
-        console.log(formData.username);
-        console.log(formData.password);
-    }
 
     return(
         <div className="login-form">
-        <form action={saveLoginDetails}>
+        <form>
             
             <FormControl>
                 <TextField label="username" 
@@ -56,7 +84,7 @@ const LoginForm=()=>{
             </FormControl>
             <br/>
             
-            <button onClick={validateDetails} className="login-button">Log In</button>
+            <button onClick={(event)=>validateDetails(event)} className="login-button">Log In</button>
         </form>
         </div>
     )

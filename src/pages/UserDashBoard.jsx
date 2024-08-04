@@ -8,7 +8,8 @@ const statusNoticeMap = {
 
 const resumeMessage = {
     finished: "Click to start again",
-    current : "Click to continue"
+    current : "Click to continue",
+    blocked : "Click to start"
 }
 
 const cardStatusColorMap={
@@ -20,10 +21,15 @@ const cardStatusColorMap={
 const projectAccessButtonColorMap={
     finished:'rgb(160,248,15)',
     current:'rgba(0, 250, 255,1)',
-    blocked:""
+    blocked:"none"
 
 }
 
+const projectAccessButtonHoverColorMap={
+    finished:'rgba(160,248,15,0.5)',
+    current:'rgba(0, 250, 255,0.5)',
+    blocked:"none"
+}
 const CardStyler = styled.div`
     background-color: ${(props)=>cardStatusColorMap[props.status]};
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -73,10 +79,16 @@ border:none;
 background-color:${(props)=>projectAccessButtonColorMap[props.status]};
 font-size:20px;
 padding:10px;
-color: rgb(102, 0, 102);
+color:${(props)=>(props.status !== 'blocked'?'rgb(102, 0, 102)':"grey")} ;
 margin-bottom:20px;
 border-radius:20px;
 box-shadow:0px 2px 5px rgba(0, 0, 0, 0.2);
+// transistion:background-color 2.0s ease-in-out, transform 0.3s ease-in;
+
+&:hover{
+    cursor:${(props)=>(props.status==='blocked'?'auto':'pointer')};
+    background-color: ${(props)=>projectAccessButtonHoverColorMap[props.status]};
+}
 `
 
 const Header = () => {
@@ -108,7 +120,9 @@ const ProjectCard = (props) => {
                 <ProjectTitle>{projectName}</ProjectTitle>
                 <ProjectStatusNotice>{statusNoticeMap[status] || `You are at step ${stepNumber}`}</ProjectStatusNotice>
                 {/* <ProjectAccessButton>{resumeMessage[status] || ""}</ProjectAccessButton> */}
-                {status !== 'blocked'? <ProjectAccessButton status={status}>{resumeMessage[status]}</ProjectAccessButton>:""}
+                {/* {status !== 'blocked'? <ProjectAccessButton status={status}>{resumeMessage[status]}</ProjectAccessButton>:""} */}
+                 <ProjectAccessButton status={status}>{resumeMessage[status]}</ProjectAccessButton>
+
             </div>
             <div>
                 
@@ -127,7 +141,7 @@ const UserDashBoard = ()=>{
         <>
         <Header/>
         <div className="projectCards">
-        <ProjectCard projectName={"Currency Convertor"} progress={100} status={"finished"} stepNumber={-1}/>
+        <ProjectCard projectName={"Currency Convertor"} progress={100} status={"finished"} stepNumber={1}/>
         <ProjectCard projectName={"Expense Tracker"} progress={50} status={"current"} stepNumber={3}/>
         <ProjectCard projectName={"Amazon Clone"} progress={0} status={"blocked"} stepNumber={-1}/>
         </div>
