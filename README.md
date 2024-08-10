@@ -1,3 +1,9 @@
+I am working with my friend Jai Narayanan for this project.
+
+I aim to create a platform for aspirants who want to learn front-end development by 
+giving them step-by-step guide to develop projects which are of beginner to advanced levels.
+
+
 # DevJourney# 
 Getting Started with Create React App
 
