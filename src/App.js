@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import SignUp from "./pages/Signup";
 import Login from './pages/Login';
 import UserDashBoard from './pages/UserDashBoard';
+import ProjectPage from './pages/ProjectPage';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
           <Route path="/" element={<HomePage/>}/>
           <Route path='/signup' element={<SignUp/>}/>
           <Route path="/login" element={<Login/>}/>
-          <Route path="/userdashboard/:userid" element={<UserDashBoard/>}/>
+          <Route path="/userdashboard" element={<UserDashBoard/>}/>
+          <Route path="/projects" element={<ProjectPage/>}/>
         </Routes>
       </Router>
     </div>

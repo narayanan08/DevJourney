@@ -31,7 +31,7 @@
   
 }
 
-.signup{
+.signup, .logout{
   margin-right: 20px;
   color:white;
   text-decoration: none;

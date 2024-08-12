@@ -1,9 +1,8 @@
 import {Link, useNavigate} from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FormControl, InputLabel, Input, TextField } from "@mui/material";
+import queryString from 'query-string';
 
-
-const usernames = ["username1","username2"];
 
 const credentials = {
     "username1":"abcde",
@@ -50,10 +49,12 @@ const LoginForm=()=>{
        }
     //    navigate(`/userDashBoard/${formData.username}`);
        if(formData.username in credentials && credentials[formData.username] === formData.password){
-        navigate(`/userDashBoard/${formData.username}`);
+        const params = {username:formData.username};
+        const queryStringParams = queryString.stringify(params);
+        navigate(`/userDashBoard?${queryStringParams}`);
        }
        else{
-        alert("Either username or password in incorrect");
+        alert("Either username or password is incorrect");
         event.preventDefault();
        }
        

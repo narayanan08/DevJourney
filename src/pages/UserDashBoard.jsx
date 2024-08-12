@@ -1,5 +1,6 @@
-import {Link, useParams} from "react-router-dom";
+import {Link, useNavigate,useParams, useLocation} from "react-router-dom";
 import styled from 'styled-components';
+import queryString from "query-string";
 
 const statusNoticeMap = {
     finished : "You completed this project",
@@ -92,11 +93,8 @@ box-shadow:0px 2px 5px rgba(0, 0, 0, 0.2);
 `
 
 const Header = () => {
-
-    const{userid} = useParams();
-    console.log(userid);
-    const userDashBoardLink = "/userDashBoard/"+userid;
-    console.log(userDashBoardLink);
+    const username = useParams();
+    const userDashBoardLink = `/userdashboard/${username}`;
     return (
     <div className="header">
         <div>
@@ -113,15 +111,18 @@ const Header = () => {
 
 
 const ProjectCard = (props) => {
-    const {projectName,progress, status, stepNumber} = props;
+    const navigate = useNavigate();
+    const {projectName,progress, status, stepNumber,projectId, username} = props;
+    const projectPageParams = {projectId,username};
+    const projectPageParamsQueryString = queryString.stringify(projectPageParams);
     return(
-        <CardStyler status={status}>  
+        <CardStyler status={status}>
             <div className="projectStatus">
                 <ProjectTitle>{projectName}</ProjectTitle>
                 <ProjectStatusNotice>{statusNoticeMap[status] || `You are at step ${stepNumber}`}</ProjectStatusNotice>
                 {/* <ProjectAccessButton>{resumeMessage[status] || ""}</ProjectAccessButton> */}
                 {/* {status !== 'blocked'? <ProjectAccessButton status={status}>{resumeMessage[status]}</ProjectAccessButton>:""} */}
-                 <ProjectAccessButton status={status}>{resumeMessage[status]}</ProjectAccessButton>
+                 <ProjectAccessButton status={status} onClick={()=>navigate(`/projects?${projectPageParamsQueryString}`)}>{resumeMessage[status]}</ProjectAccessButton>
 
             </div>
             <div>
@@ -137,13 +138,20 @@ const ProjectCard = (props) => {
 }
 
 const UserDashBoard = ()=>{
+    const location = useLocation();
+    const params = queryString.parse(location.search);
+    const username = params.username;
+    
+
     return(
         <>
         <Header/>
         <div className="projectCards">
-        <ProjectCard projectName={"Currency Convertor"} progress={100} status={"finished"} stepNumber={1}/>
-        <ProjectCard projectName={"Expense Tracker"} progress={50} status={"current"} stepNumber={3}/>
-        <ProjectCard projectName={"Amazon Clone"} progress={0} status={"blocked"} stepNumber={-1}/>
+        <ProjectCard projectId={1} projectName={"Currency Convertor"} progress={100} status={"finished"} stepNumber={1} username={username}/>
+        <ProjectCard projectId={2} projectName={"Expense Tracker"} progress={100} status={"finished"} stepNumber={1} username={username}/>
+        <ProjectCard projectId={3} projectName={"Blog Management System"} progress={50} status={"current"} stepNumber={3} username={username}/>
+        <ProjectCard projectId={4} projectName={"Amazon Clone"} progress={0} status={"blocked"} stepNumber={-1} username={username}/>
+        <ProjectCard projectId={5} projectName={"Habit Tracker"} progress={0} status={"blocked"} stepNumber={-1} username={username}/>
         </div>
         </>
     )
